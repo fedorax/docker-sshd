@@ -1,0 +1,13 @@
+version: '3'
+services:
+    linux:
+        image: linux
+        build:
+            context: .
+            dockerfile: dockerfile
+        privileged: true
+        command: "/usr/sbin/sshd -D"
+        ports:
+            - "10022:22"
+        volumes:
+            - ./data:/data
